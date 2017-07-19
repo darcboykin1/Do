@@ -1,0 +1,93 @@
+		html{
+			height: 100%;
+		}
+
+		body{
+			height: 100%;
+			background:url("http://moheban-ahlebeit.com/images/Wallpaper-Notebook/Wallpaper-Notebook-24.jpg");
+			background-position: center;
+			background-size: cover;
+			margin: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#input {
+			font-size: 35px;
+			text-align: center;
+			background-color: black;
+			color: gold;
+			border: 0px;
+			margin-bottom: 1em;
+			border-radius: 25px;
+		}
+
+		input:click {
+			border: 1px solid white;
+		}
+
+		#form{
+			width: 100%;
+			text-align: center;
+
+		}
+
+		ol {
+			margin: 0;
+			padding: 0;
+			color: white;
+			width: 60%;
+			height: 500px;
+			overflow: scroll;
+			background-color:rgba(256,256,256,0.5);
+			margin: auto;
+			border-radius: 0px 25px 25px 0px;
+			border-left: 2px solid blue;
+		}
+
+		li {
+			color: black;
+			background-color:rgba(256,256,256,0.5);
+			border-radius: 0px 0px 0px 0px;
+			font-size: 30px;
+			margin-right: 0.2em;
+			margin-top: 0.3em;
+			height: 40px;
+			width: 95%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			/*box-shadow: 0px 2px 2px red;*/
+			border-bottom: 1px solid red;
+		}
+
+		li:hover {
+			animation: picker 0.5s alternate forwards;
+			cursor: pointer;
+		}
+
+		@keyframes picker{
+			from{
+				box-shadow: 0px 2px 2px red;
+			}
+
+			to{
+				box-shadow: 2px 2px 2px red;
+				height: 50px;
+				width: 97%;
+				border-radius: 0px 25px 0px 25px;
+				margin-left: 0.5em;
+			}
+		}
+
+		#add {
+			width: 200px;
+			height: 40px;
+			color: gold;
+			font-size: 20px;
+			border: 0px;
+			border-radius: 35px;
+			background-color: rgba(0,0,0,1);
+			text-transform: uppercase;
+		}
