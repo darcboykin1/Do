@@ -68,16 +68,19 @@
 		}
 	}
 
-	createDiv();
-	createInput();
-	createTest();
-	createButton();
 
 	const add = document.getElementById("add");
 	const input = document.getElementById("input");
 	const li = document.querySelectorAll(".item");
 
-	// variables "add" and "input" are here since their respective elements were created further up in our script
+	// variables "add", "input" and "input" are here since their respective elements were created dynamically
+
+	// Let's begin calling our functions in order of when we will need each one
+
+	createDiv();
+	createInput();
+	createTest();
+	createButton();
 
 	add.onclick = function(){
 		if(input.value !== ""){
