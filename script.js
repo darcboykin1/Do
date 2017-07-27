@@ -1,19 +1,27 @@
+	const form = document.createElement("div");
+	const adder = document.createElement("input");
+	const todoParent = document.createElement("ol");
+	const addButton = document.createElement("input");
+	const br = document.createElement("br");
+
 	// creating our form div
-		var form = document.createElement("div");
+	function createDiv(){
 		form.setAttribute("id","form");
 		document.body.appendChild(form);
+	}
 	// form div created
 
 	// creating our text bar to add items . . . 
-		var adder = document.createElement("input");
+	function createInput(){
 		adder.setAttribute("id", "input");
 		adder.setAttribute("type", "text");
 		adder.setAttribute("placeholder","Write Your Do...");
 		form.appendChild(adder);
+	}
 	// text bar created
 
 	// creating our to do list with test <li>'s
-		var todoParent = document.createElement("ol");
+	function createTest(){
 		todoParent.setAttribute("id","todolist");
 		form.appendChild(todoParent);
 
@@ -24,42 +32,61 @@
 			itemParent.appendChild(itemChild);
 			todoParent.appendChild(itemParent);
 		}
+	}
 	// todo list created with test li's
 
 	// creating our button
-		var addButton = document.createElement("input");
+	function createButton(){
 		addButton.setAttribute("type","button");
 		addButton.setAttribute("name","add");
 		addButton.setAttribute("id","add");
 		addButton.setAttribute("value","Add Your Do");
-
-		var br = document.createElement("br");
 		form.appendChild(br);
 		form.appendChild(addButton);
+	}
 	// button created
 
-		var add = document.getElementById("add");
-	// this is our button to add to do's to our list
 
-		var input = document.getElementById("input");
-	// this is our input box
+	function addTask(){
+		var task = input.value;
+	// this will capure the value of our box
+		var list = document.getElementById("todolist");
+	// This is our unordered list
+		var listItem = document.createElement("li");
+		listItem.setAttribute("class", "item");
+		list.appendChild(listItem);
+		listItem.innerHTML = task;
+		input.value = "";
+	}
 
-
-		function addTask(){
-			var task = input.value;
-		// this will capure the value of our box
-
-			var list = document.getElementById("todolist");
-		// This is our unordered list
-
-			var listItem = document.createElement("li");
-			list.appendChild(listItem);
-			listItem.innerHTML = task;
-			input.value = "";
+	function removeTask(event){
+		var target = event.target;
+		if(target.className === "item"){
+			target.setAttribute("class", "linethrough");
+		} else if (target.className === "linethrough"){
+			target.setAttribute("class", "item");
 		}
+	}
+
+	createDiv();
+	createInput();
+	createTest();
+	createButton();
+
+	const add = document.getElementById("add");
+	const input = document.getElementById("input");
+	const li = document.querySelectorAll(".item");
+
+	// variables "add" and "input" are here since their respective elements were created further up in our script
 
 	add.onclick = function(){
 		if(input.value !== ""){
 	  addTask();
-	}
-	}
+		}
+	};
+
+	todoParent.onclick = function(){
+		removeTask(event);
+	};
+
+
